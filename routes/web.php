@@ -1,16 +1,28 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Authentication
+|--------------------------------------------------------------------------
+*/
+Auth::routes();
+/*
+|--------------------------------------------------------------------------
+| Pages
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', 'PagesController@home');
+
+Route::get('/faq', 'PagesController@faq');
+
+Route::get('/contact', 'PagesController@contact');
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Admin
 |--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
 */
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
 
-Route::get('/', function () {
-    return view('welcome');
 });

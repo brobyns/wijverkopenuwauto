@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    //
+    public function listing(){
+        return $this->belongsTo('App\Listing');
+    }
 }

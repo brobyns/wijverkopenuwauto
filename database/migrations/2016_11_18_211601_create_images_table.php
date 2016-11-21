@@ -15,9 +15,15 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('vehicle_id', false, true);
+            $table->integer('listing_id', false, true);
             $table->string('path');
+            $table->integer('width')->unsigned();
+            $table->integer('height')->unsigned();
+            $table->text('description');
             $table->timestamps();
+
+            $table->foreign('listing_id')->unsigned()->references('id')->on('listings')->onDelete('cascade');
+
         });
     }
 

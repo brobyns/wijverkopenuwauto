@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListingsTable extends Migration
+class CreateVehiclePropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateListingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('listings', function (Blueprint $table) {
+        Schema::create('vehicleProperties', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('vehicle_id', false, true);
-            $table->integer('price', false, true);
-            $table->timestamps();
+            $table->string('property_name');
+            $table->string('property_value');
 
-            $table->foreign('vehicle_id')->unsigned()->references('id')->on('vehicles');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateListingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('listings');
+        Schema::drop('vehicleProperties');
     }
 }

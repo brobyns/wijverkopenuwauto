@@ -4,10 +4,43 @@
 
 // Variables
 @import "variables";
+
+// Mixins
 @import "mixins";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Grid system
+@import "../bower/flexboxgrid-sass/flexboxgrid.scss";
+
+// Animations
+@import "../bower/animatewithsass/animate.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-family: $font-family-sans-serif;
+    font-weight: 400;
+    background: #f1f1f1;
+    color: #4F5151;
+    line-height: 1.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.content {
+  position: relative;
+  top: 4rem;
+  > .section--hero {
+    top: 0;
+  }
+}
 
 .container {
   width: 100%;
@@ -15,18 +48,196 @@
 
 nav {
   ul {
-    margin: 0;
+    margin: 1em 0;
     padding: 0;
     list-style: none;
   }
 
   li { display: inline-block; }
 
-  a {
+  #{$a-tags} {
     display: block;
-    padding: 6px 12px;
+    padding: 0.5em 0.75em;
     text-decoration: none;
+    color: $text-color;
   }
+}
+
+.navbar {
+  background-color: transparent;
+  display: block;
+  height: 4rem;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  #{$a-tags} {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+  }
+}
+
+.nav-colored {
+  background-color: rgba(33, 42, 52, 0.76);
+  color: #FFFFFF;
+
+}
+.nav-transparent {
+  background-color:transparent;
+  color: #212a34;
+}
+
+.navbar-brand {
+  float: left;
+}
+
+section {
+  .section--header {
+    text-transform: uppercase;
+  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  isolation: isolate;
+  position: relative;
+  padding: 1em 2em;
+}
+
+.section--hero {
+  background-image: url(https://unsplash.it/1920/1080?image=737);
+  height: 50vh;
+}
+
+.section--services {
+  background-color: #6781ff;
+  color: #ffffff;
+}
+
+.section--steps {
+  background-color: #ffffff;
+}
+
+.section--contact {
+  background-color: #f1f1f1;
+}
+
+.section--maps, #map {
+  padding: 0;
+  height: 50vh;
+}
+
+.site-footer {
+  background-color: #6b717f
+}
+
+.site-footer__top {
+  background-color: #212a34;
+  padding: 12px 0;
+}
+
+.site-footer__bottom {
+  color: #999;
+  background-color: #19212A;
+  line-height: 1em;
+  padding: 1em 0;
+}
+
+.site-footer__social {
+  ul {
+    list-style: none;
+    font-size: .75rem;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    line-height: 2.5em;
+    margin: 2px 6px;
+
+    a {
+      display: inline-block;
+    }
+
+    span {
+      visibility: hidden;
+    }
+  }
+}
+
+li.site-footer__social--description {
+  display: block;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.site-footer__social--facebook {
+  background: url(/img/social/icon-social-f.svg) center no-repeat;
+  background-size: contain;
+}
+.site-footer__social--twitter {
+  background: url(/img/social/icon-social-t.svg) center no-repeat;
+  background-size: contain;
+}
+.site-footer__social--googleplus {
+  background: url(/img/social/icon-social-g.svg) center no-repeat;
+  background-size: contain;
+}
+
+.site-footer__branding, .site-footer__navigation {
+  width: 95.8333333333%;
+  margin-left: 2.0833333333%;
+  margin-right: 2.0833333333%;
+}
+
+.site-footer__navigation a {
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+}
+form {
+  max-width: 600px;
+  text-align: center;
+  margin: 20px auto;
+  background-color: #f1f1f1;
+
+  input, textarea {
+    border:0; outline:0;
+    padding: 1em;
+    border-radius: 2px;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    font-family: 'Merriweather', sans-serif;
+    box-shadow: 0 1px 1px rgba(black, 0.1);
+    resize: none;
+
+    &:focus {
+      box-shadow: 0 0 2px rgba(#dc4e41, 1) !important;
+    }
+  }
+
+  .input-submit {
+    color: white;
+    background: #e74c3c;
+    cursor: pointer;
+  }
+}
+
+.column {
+  padding: 0 2em;
+  position: relative;
+}
+
+.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  margin: 2em 0;
+  justify-content: space-around;
 }
 
 .message {

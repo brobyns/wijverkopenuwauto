@@ -26,3 +26,10 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Contact
+|--------------------------------------------------------------------------
+*/
+Route::post('contact/request', 'ContactController@contactRequest');

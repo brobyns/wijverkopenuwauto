@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function submitContactForm(Request $request){
+    public function contactRequest(Request $request){
 
         $data = $request->all();
         $validator = $this->validator($data);

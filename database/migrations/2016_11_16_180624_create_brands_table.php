@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListingsTable extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateListingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('listings', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('vehicle_id', false, true);
-            $table->integer('price', false, true);
+            $table->string('name');
             $table->timestamps();
-
-            $table->foreign('vehicle_id')->unsigned()->references('id')->on('vehicles');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateListingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('listings');
+        Schema::drop('brands');
     }
 }

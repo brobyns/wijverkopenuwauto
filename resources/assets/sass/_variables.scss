@@ -51,3 +51,16 @@ $breakpoints: (
         "desktop":      1248px,
         "desktop-wide": 1440px
 );
+
+$table-header-font-weight:      400;
+$table-header-font-color:       #757575;
+
+$table-cell-padding:            0.5rem;
+$table-condensed-cell-padding:  $table-cell-padding/2;
+
+
+$table-bg:                      #fff;
+$table-bg-accent:               #f5f5f5;
+$table-bg-hover:                rgba(0,0,0,.12);
+$table-bg-active:               $table-bg-hover;
+$table-border-color: #7e9b9f;

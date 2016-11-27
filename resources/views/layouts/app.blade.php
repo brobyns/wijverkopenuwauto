@@ -15,10 +15,10 @@
     </head>
     <body>
         @include('partials.navigation')
-        @yield('content')
-        @include('partials.footer')
+        <div id="app">
+            @yield('content')
+        </div>
         <!-- Scripts -->
-        <script src="/js/app.js"></script>
         <script>
             window.addEventListener('scroll', function (e) {
                 var nav = document.getElementById('nav');

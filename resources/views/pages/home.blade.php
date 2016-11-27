@@ -15,19 +15,19 @@
     </header>
     <div class="container">
         <div class="row vdivide">
-            <div class="col-xs-12 col-sm-2 col-sm-offset-1 column">
+            <div class="col-xs-12 col-sm-4 col-md-2 col-sm-offset-1 column">
                 <p>In samenspraak met U stellen wij de vraagprijs vast</p>
             </div>
-            <div class="col-xs-12 col-sm-2 column">
+            <div class="col-xs-12 col-sm-4 col-md-2 column">
                 <p>Wij adverteren uw wagen op de bekendste autosites</p>
             </div>
-            <div class="col-xs-12 col-sm-2 column">
+            <div class="col-xs-12 col-sm-4 col-md-2 column">
                 <p>We maken een uitgebreide fotoreportage van uw wagen</p>
             </div>
-            <div class="col-xs-12 col-sm-2 column">
+            <div class="col-xs-12 col-sm-4 col-md-2 column">
                 <p>Tentoonstelling in onze mooie virtuele showroom</p>
             </div>
-            <div class="col-xs-12 col-sm-2 column">
+            <div class="col-xs-12 col-sm-4 col-md-2 column">
                 <p>We zorgen voor het verkoopcontract</p>
             </div>
         </div>
@@ -69,4 +69,5 @@
         </div>
     </div>
 </section>
+@include('partials.footer')
 @endsection

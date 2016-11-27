@@ -8,6 +8,6 @@ class VehicleProperty extends Model
 {
     public function vehicles()
     {
-        return $this->belongsToMany('App\Vehicle', 'vehicle_vehicleproperty')->withTimestamps();
+        return $this->belongsToMany('App\Vehicle', 'vehicle_vehicle_properties')->withTimestamps();
     }
 }

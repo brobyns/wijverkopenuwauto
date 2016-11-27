@@ -6,17 +6,22 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BrandsSeeder' => $baseDir . '/database/seeds/BrandsSeeder.php',
+    'CreateBrandsTable' => $baseDir . '/database/migrations/2016_11_16_180624_create_brands_table.php',
+    'CreateFuelTypesTable' => $baseDir . '/database/migrations/2016_11_16_165541_create_fuel_types_table.php',
     'CreateImagesTable' => $baseDir . '/database/migrations/2016_11_18_211601_create_images_table.php',
-    'CreateListingsTable' => $baseDir . '/database/migrations/2016_11_18_205819_create_listings_table.php',
+    'CreateListingsTable' => $baseDir . '/database/migrations/2016_11_18_174643_create_listings_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
-    'CreateVehiclePropertiesTable' => $baseDir . '/database/migrations/2016_11_21_174435_create_vehicleProperties_table.php',
-    'CreateVehicleVehiclePropertyTable' => $baseDir . '/database/migrations/2016_11_21_183853_create_vehicle_vehicleProperty_table.php',
-    'CreateVehiclesTable' => $baseDir . '/database/migrations/2016_11_18_205736_create_vehicles_table.php',
+    'CreateVehicleModelsTable' => $baseDir . '/database/migrations/2016_11_24_194953_create_vehicle_models_table.php',
+    'CreateVehiclePropertiesTable' => $baseDir . '/database/migrations/2016_11_21_174435_create_vehicle_properties_table.php',
+    'CreateVehicleVehiclePropertiesTable' => $baseDir . '/database/migrations/2016_11_21_183853_create_vehicle_vehicle_properties_table.php',
+    'CreateVehiclesTable' => $baseDir . '/database/migrations/2016_11_17_205736_create_vehicles_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
+    'FuelTypesTableSeeder' => $baseDir . '/database/seeds/FuelTypesTableSeeder.php',
     'Hamcrest\\Arrays\\IsArray' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
     'Hamcrest\\Arrays\\IsArrayContaining' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
     'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -541,4 +546,5 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'VehicleModelsSeeder' => $baseDir . '/database/seeds/VehicleModelsSeeder.php',
 );

@@ -13,6 +13,8 @@ Auth::routes();
 
 Route::get('/', 'PagesController@home');
 
+Route::get('/te-koop', 'PagesController@forSale');
+
 Route::get('/faq', 'PagesController@faq');
 
 Route::get('/contact', 'PagesController@contact');
@@ -22,9 +24,10 @@ Route::get('/contact', 'PagesController@contact');
 | Admin
 |--------------------------------------------------------------------------
 */
-Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware', 'prefix' => 'admin'], function()
 {
-
+    Route::resource('vehicles', 'VehiclesController');
+    Route::resource('vehicleProperties', 'VehiclePropertiesController');
 });
 
 /*

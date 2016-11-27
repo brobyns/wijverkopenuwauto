@@ -1,6 +1,7 @@
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import "../bower/font-awesome/scss/font-awesome";
 
 // Variables
 @import "variables";
@@ -126,6 +127,10 @@ section {
   height: 50vh;
 }
 
+.section--vehicles {
+  height: 80vh;
+}
+
 .site-footer {
   background-color: #6b717f
 }
@@ -193,19 +198,51 @@ li.site-footer__social--description {
   display: inline-block;
   text-decoration: none;
 }
-form {
-  max-width: 600px;
-  text-align: center;
-  margin: 20px auto;
-  background-color: #f1f1f1;
 
-  input, textarea {
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-default {
+  color: #6781ff;
+  background-color: #fff;
+  border-color: #6781ff;
+  margin: 5px 0;
+
+  &:hover {
+    color: #fff;
+    background-color: #6781ff;
+  }
+}
+
+form {
+
+  input, select, textarea {
     border:0; outline:0;
     padding: 1em;
     border-radius: 2px;
     display: block;
     width: 100%;
-    margin-top: 1em;
+    margin-top: 0.5em;
     font-family: 'Merriweather', sans-serif;
     box-shadow: 0 1px 1px rgba(black, 0.1);
     resize: none;
@@ -213,6 +250,17 @@ form {
     &:focus {
       box-shadow: 0 0 2px rgba(#dc4e41, 1) !important;
     }
+  }
+
+  label {
+    display: block;
+    padding: 1em;
+    line-height: 1em;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
   }
 
   .input-submit {
@@ -259,4 +307,242 @@ form {
 .warning {
   @extend .message;
   border-color: yellow;
+}
+
+.valign-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.z-depth-1 {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+    0 1px 5px 0 rgba(0,0,0,0.12),
+    0 3px 1px -2px rgba(0,0,0,0.2)
+}
+
+.card-panel {
+  transition:box-shadow .25s;
+  padding:20px;
+  margin:0.5rem 0 1rem 0;
+  border-radius:2px;
+  background-color:#fff
+}
+.card {
+  position:relative;
+  margin:0.5rem 0 1rem 0;
+  background-color:#fff;
+  transition:box-shadow .25s;
+  border-radius:2px;
+  .card-title {
+    font-size:24px;
+    font-weight:300
+  }
+}
+
+
+// Tables
+//
+// -----------------
+
+// Baseline styles
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  background-color: $table-bg;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      transition: all .3s ease;
+      > th,
+      > td {
+        text-align: left;
+        padding: $table-cell-padding;
+        vertical-align: middle;
+        border-top: 0;
+        transition: all .3s ease;
+      }
+    }
+  }
+  > thead > tr > th {
+    font-weight: $table-header-font-weight;
+    color: $table-header-font-color;
+    vertical-align: bottom;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+  }
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  > tbody + tbody {
+    border-top: 1px solid rgba(0,0,0,.12);
+  }
+
+  // Nesting
+  .table {
+    background-color: $table-bg;
+  }
+
+  // Remove border
+  .no-border {
+    border: 0;
+  }
+}
+
+// Condensed table w/ half padding
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+
+// Bordered version
+//
+// Add horizontal borders between columns.
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 0;
+        border-bottom: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+      background-color: $table-bg-accent;
+    }
+  }
+}
+
+// Hover effect
+//
+.table-hover {
+  > tbody > tr:hover {
+    > td,
+    > th {
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
+// Responsive tables (vertical)
+//
+// Wrap your tables in `.table-responsive-vertical` and we'll make them mobile friendly
+// by vertical table-cell display. Only applies <768px. Everything above that will display normally.
+// For correct display you must add 'data-title' to each 'td'
+.table-responsive-vertical {
+
+  @media screen and (max-width: 768px) {
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+      background-color: transparent;
+      > thead,
+      > tfoot {
+        display: none;
+      }
+
+      > tbody {
+        display: block;
+
+        > tr {
+          display: block;
+          border: 1px solid $table-border-color;
+          border-radius: 2px;
+          margin-bottom: $table-cell-padding;
+
+          > td {
+            background-color: $table-bg;
+            display: block;
+            vertical-align: middle;
+            text-align: right;
+          }
+          > td[data-title]:before {
+            content: attr(data-title);
+            float: left;
+            font-size: inherit;
+            font-weight: $table-header-font-weight;
+            color: $table-header-font-color;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > tbody {
+        > tr {
+          > td {
+            border: 0;
+            border-bottom: 1px solid $table-border-color;
+          }
+          > td:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the striped tables
+    > .table-striped {
+      > tbody > tr > td,
+      > tbody > tr:nth-child(odd) {
+        background-color: $table-bg;
+      }
+      > tbody > tr > td:nth-child(odd) {
+        background-color: $table-bg-accent;
+      }
+    }
+
+    // Special overrides for hover tables
+    > .table-hover {
+      > tbody {
+        > tr:hover > td,
+        > tr:hover {
+          background-color: $table-bg;
+        }
+        > tr > td:hover {
+          background-color: $table-bg-hover;
+        }
+      }
+    }
+  }
 }

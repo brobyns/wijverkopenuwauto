@@ -289,17 +289,22 @@ class ComposerStaticInit61a51e8a3490bcfe8d21d1011bef9689
     );
 
     public static $classMap = array (
+        'BrandsSeeder' => __DIR__ . '/../..' . '/database/seeds/BrandsSeeder.php',
+        'CreateBrandsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_180624_create_brands_table.php',
+        'CreateFuelTypesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_165541_create_fuel_types_table.php',
         'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_18_211601_create_images_table.php',
-        'CreateListingsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_18_205819_create_listings_table.php',
+        'CreateListingsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_18_174643_create_listings_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
-        'CreateVehiclePropertiesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_174435_create_vehicleProperties_table.php',
-        'CreateVehicleVehiclePropertyTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_183853_create_vehicle_vehicleProperty_table.php',
-        'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_18_205736_create_vehicles_table.php',
+        'CreateVehicleModelsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_194953_create_vehicle_models_table.php',
+        'CreateVehiclePropertiesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_174435_create_vehicle_properties_table.php',
+        'CreateVehicleVehiclePropertiesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_183853_create_vehicle_vehicle_properties_table.php',
+        'CreateVehiclesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_17_205736_create_vehicles_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'FuelTypesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/FuelTypesTableSeeder.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -824,6 +829,7 @@ class ComposerStaticInit61a51e8a3490bcfe8d21d1011bef9689
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'VehicleModelsSeeder' => __DIR__ . '/../..' . '/database/seeds/VehicleModelsSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

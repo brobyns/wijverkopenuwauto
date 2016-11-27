@@ -55,6 +55,7 @@
         </div>
     </section>
 </div>
+@include('partials.footer')
 <script>
     document.addEventListener("DOMContentLoaded", function(event) {
         initMap();

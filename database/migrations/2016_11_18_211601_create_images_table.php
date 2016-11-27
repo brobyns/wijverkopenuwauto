@@ -22,7 +22,7 @@ class CreateImagesTable extends Migration
             $table->text('description');
             $table->timestamps();
 
-            $table->foreign('listing_id')->unsigned()->references('id')->on('listings')->onDelete('cascade');
+            $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade');
 
         });
     }
@@ -34,6 +34,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('listings');
+        Schema::drop('images');
     }
 }

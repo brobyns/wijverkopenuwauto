@@ -19,6 +19,14 @@ Route::get('/faq', 'PagesController@faq');
 
 Route::get('/contact', 'PagesController@contact');
 
+Route::get('images/{image}', function($image = null)
+{
+    $path = storage_path() . $image;
+    if (file_exists($path)) {
+        return Response::download($path);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Admin
@@ -26,8 +34,9 @@ Route::get('/contact', 'PagesController@contact');
 */
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware', 'prefix' => 'admin'], function()
 {
-    Route::resource('vehicles', 'VehiclesController');
+    Route::resource('listings', 'ListingsController');
     Route::resource('vehicleProperties', 'VehiclePropertiesController');
+    Route::post('upload', ['as' => 'admin.upload', 'uses' =>'UploadsController@fineUploaderEndpoint']);
 });
 
 /*

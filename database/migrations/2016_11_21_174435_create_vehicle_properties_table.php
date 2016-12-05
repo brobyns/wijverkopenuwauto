@@ -15,8 +15,17 @@ class CreateVehiclePropertiesTable extends Migration
     {
         Schema::create('vehicle_properties', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('property_name');
-            $table->string('property_value');
+            $table->string('name');
+
+            $table->timestamps();
+        });
+
+        Schema::create('vehicles_vehicle_properties', function (Blueprint $table) {
+            $table->integer('vehicle_id')->unsigned()->index();
+            $table->integer('vehicle_property_id')->unsigned()->index();
+
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
+            $table->foreign('vehicle_property_id')->references('id')->on('vehicle_properties')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -29,6 +38,7 @@ class CreateVehiclePropertiesTable extends Migration
      */
     public function down()
     {
+        Schema::drop('vehicles_vehicle_properties');
         Schema::drop('vehicle_properties');
     }
 }

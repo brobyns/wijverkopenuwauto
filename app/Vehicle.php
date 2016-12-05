@@ -3,16 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laracodes\Presenter\Traits\Presentable;
 
 class Vehicle extends Model
 {
-    public function vehicle() {
+    use Presentable;
+
+    protected $presenter = 'App\Presenters\KilometersPresenter';
+
+    public function listing() {
         return $this->hasOne('App\Listing');
     }
 
-    public function vehiclesProperties()
+    public function vehicleProperties()
     {
-        return $this->belongsToMany('App\VehicleProperty', 'vehicle_vehicle_properties')->withTimestamps();
+        return $this->belongsToMany('App\VehicleProperty', 'vehicles_vehicle_properties')->withTimestamps();
     }
 
     public function brand() {

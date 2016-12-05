@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\VehicleProperty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class VehiclePropertiesController extends Controller
 {
@@ -23,7 +25,7 @@ class VehiclePropertiesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,10 @@ class VehiclePropertiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehicleProperty = new VehicleProperty();
+        $vehicleProperty->name = $request->get('name');
+        $vehicleProperty->save();
+        return response()->json(View::make('partials.vehicleProperties')->render());
     }
 
     /**

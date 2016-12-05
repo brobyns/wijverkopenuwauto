@@ -18,6 +18,6 @@ class BrandService
     }
 
     public function getBrandsForDropdown() {
-        return Brand::all()->pluck('name', 'id');
+        return Brand::pluck('name', 'id');
     }
 }

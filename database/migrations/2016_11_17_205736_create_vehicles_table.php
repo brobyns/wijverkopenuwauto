@@ -15,20 +15,22 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('brand_id', false, true);
-            $table->integer('vehicle_model_id', false, true);
-            $table->integer('fuel_type_id', false, true);
+            $table->integer('brand_id')->unsigned();
+            $table->integer('vehicle_model_id')->unsigned();
+            $table->integer('fuel_type_id')->unsigned();
             $table->string('body_type');
             $table->string('transmission');
             $table->date('first_registered');
-            $table->integer('kilometers', false, true);
-            $table->tinyInteger('n_owners', false, true);
-            $table->tinyInteger('n_seats', false, true);
-            $table->tinyInteger('n_gears', false, true);
+            $table->integer('kilometers')->unsigned();
+            $table->tinyInteger('n_owners')->unsigned();
+            $table->tinyInteger('n_seats')->unsigned();
+            $table->tinyInteger('n_gears')->unsigned();
+            $table->tinyInteger('n_doors')->unsigned();
             $table->string('color');
             $table->string('color_type');
             $table->string('color_interior');
             $table->string('power');
+            $table->boolean('damaged');
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands');

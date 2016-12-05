@@ -11,6 +11,6 @@ class FuelTypeService
     }
 
     public function getFuelTypesForDropdown() {
-        return FuelType::all()->pluck('name', 'id');
+        return FuelType::pluck('name', 'id');
     }
 }

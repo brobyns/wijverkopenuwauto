@@ -15,11 +15,13 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('listing_id', false, true);
+            $table->integer('listing_id')->nullable()->unsigned();
+            $table->string('original_name');
+            $table->string('name');
             $table->string('path');
             $table->integer('width')->unsigned();
             $table->integer('height')->unsigned();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade');

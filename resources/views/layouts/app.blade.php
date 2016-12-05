@@ -18,6 +18,8 @@
         <div id="app">
             @yield('content')
         </div>
+
+        @include('modals.vehicleProperties.create')
         <!-- Scripts -->
         <script>
             window.addEventListener('scroll', function (e) {

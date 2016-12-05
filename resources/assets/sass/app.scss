@@ -49,7 +49,7 @@ h2 {
 
 nav {
   ul {
-    margin: 1em 0;
+    margin: 0;
     padding: 0;
     list-style: none;
   }
@@ -67,12 +67,12 @@ nav {
 .navbar {
   background-color: transparent;
   display: block;
-  height: 4rem;
+  height: 3rem;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 99999;
+  z-index: 900;
   #{$a-tags} {
     font-size: 1.5rem;
     color: #FFFFFF;
@@ -223,14 +223,15 @@ li.site-footer__social--description {
 }
 
 .btn-default {
-  color: #6781ff;
-  background-color: #fff;
+  color: #fff;
+  background-color: #6781ff;
   border-color: #6781ff;
   margin: 5px 0;
 
   &:hover {
-    color: #fff;
-    background-color: #6781ff;
+    color: #6781ff;
+    border-color: #6781ff;
+    background-color: #fff;
   }
 }
 
@@ -269,6 +270,103 @@ form {
     cursor: pointer;
   }
 }
+
+.control {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.control__indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1rem;
+  background: #e6e6e6;
+
+  /* Check mark */
+  &:after {
+    position: absolute;
+    display: none;
+    content: '';
+  }
+}
+
+.control--radio .control__indicator {
+  border-radius: 50%;
+}
+
+/* Hover and focus states */
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+
+/* Checked state */
+.control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+
+/* Hover state whilst checked */
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+
+/* Disabled state */
+.control input:disabled ~ .control__indicator {
+  pointer-events: none;
+  opacity: .6;
+  background: #e6e6e6;
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+
+/* Checkbox tick */
+.control--checkbox .control__indicator:after {
+  top: 4px;
+  left: 8px;
+  width: 3px;
+  height: 8px;
+  transform: rotate(45deg);
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+}
+
+/* Disabled tick colour */
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+
+/* Radio button inner circle */
+.control--radio .control__indicator:after {
+  top: 7px;
+  left: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Disabled circle colour */
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #7b7b7b;
+}
+
+
 
 .column {
   padding: 0 2em;
@@ -314,28 +412,31 @@ form {
   align-items: center;
 }
 
-.z-depth-1 {
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
-    0 1px 5px 0 rgba(0,0,0,0.12),
-    0 3px 1px -2px rgba(0,0,0,0.2)
+.z-depth-1, .card-panel, .card, .toast, .btn, .btn-large,
+.btn-floating, .dropdown-content, .collapsible, .side-nav {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
 }
 
 .card-panel {
   transition:box-shadow .25s;
-  padding:20px;
-  margin:0.5rem 0 1rem 0;
+  padding:2rem;
+  margin: 2rem 0;
   border-radius:2px;
-  background-color:#fff
+  background-color: #fefefe
 }
 .card {
   position:relative;
-  margin:0.5rem 0 1rem 0;
   background-color:#fff;
   transition:box-shadow .25s;
   border-radius:2px;
+  margin: 2rem 0;
   .card-title {
     font-size:24px;
-    font-weight:300
+    font-weight:400;
+    padding-top: 1em;
+  }
+  .card-content {
+    padding: 2rem;
   }
 }
 
@@ -542,6 +643,133 @@ form {
         > tr > td:hover {
           background-color: $table-bg-hover;
         }
+      }
+    }
+  }
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.close {
+  float: right;
+  font-size: ($font-size-base * 2);
+  font-weight: $close-font-weight;
+  line-height: 1;
+  color: $close-color;
+  text-shadow: $close-text-shadow;
+  opacity: .2;
+  border: none;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: $close-color;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+  }
+
+  // Additional properties for button version
+  // iOS requires the button element instead of an anchor tag.
+  // If you want the anchor version, it requires `href="#"`.
+  // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+  &button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
+}
+
+.qq-upload-button-selector {
+  position: absolute !important;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+}
+
+
+.for-sale {
+  .info-basics {
+    padding: 0 2rem;
+    .vehicle-properties {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 1.5rem;
+      li {
+        margin: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid #d9d9d9;
+        font-size: 13px;
+        line-height: 13px;
+      }
+      .property-name {
+        text-transform: uppercase;
+        float: left;
+        color: #696969;
+      }
+      .property-value {
+        float: right;
+        text-align: right;
+        font-weight: 700;
+        color: #696969;
+      }
+    }
+  }
+
+  .listing-title {
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    background-color: rgba(51, 51, 51, 0.41);
+    width: 100%;
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .vehicle-image {
+    width: 100%;
+    margin: 0;
+    border-radius: 2px 2px 0 0;
+    overflow: hidden;
+
+    .icon-enlarge {
+      background-image: url('../img/magnify.svg');
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 2px 2px 0 0;
+      transition: all 0.3s;
+      margin: -10px;
+    }
+
+    &:hover{
+      img {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
       }
     }
   }

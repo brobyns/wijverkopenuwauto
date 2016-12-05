@@ -12,7 +12,11 @@ const elixir = require('laravel-elixir');
  */
 
 elixir(mix => {
-    mix.sass('app.scss')
+    mix.sass(['app.scss'], 'resources/assets/css/app.css')
     .webpack('app.js')
+    .scripts(['../bower/fine-uploader/dist/fine-uploader.js', '../bower/pikaday/pikaday.js'])
+    .styles(['app.css', 'bootstrap-modal.css', '../bower/fine-uploader/dist/fine-uploader-gallery.css'], 'public/css/app.css')
+    .version('css/app.css')
+    .copy('resources/assets/img', 'public/css')
     .copy('resources/assets/bower/font-awesome/fonts/', 'public/fonts');
 });

@@ -5,7 +5,7 @@
             @foreach($properties as $property)
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <label class="control control--checkbox">{{$property->name}}
-                        {!! Form::checkbox('properties[]', $property->id, $vehicle != null ? $vehicle->vehicleProperties->contains($property->id): false) !!}
+                        {!! Form::checkbox('properties[]', $property->id, $listing != null ? $listing->vehicle->vehicleProperties->contains($property->id): false) !!}
                         <div class="control__indicator"></div>
                     </label>
                 </div>

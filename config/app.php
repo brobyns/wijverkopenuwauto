@@ -166,6 +166,7 @@ return [
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         App\Providers\FineUploaderServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -233,6 +234,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'FineUploader' => App\Providers\FineUploaderFacade::class,
+        'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class
 
     ],
 

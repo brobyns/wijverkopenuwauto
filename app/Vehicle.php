@@ -9,7 +9,7 @@ class Vehicle extends Model
 {
     use Presentable;
 
-    protected $presenter = 'App\Presenters\KilometersPresenter';
+    protected $presenter = 'App\Presenters\VehiclePresenter';
 
     public function listing() {
         return $this->hasOne('App\Listing');

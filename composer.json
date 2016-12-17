@@ -12,7 +12,8 @@
         "fineuploader/php-traditional-server": "^1.2",
         "intervention/image": "^2.3",
         "guilhermegonzaga/presenter": "^1.0",
-        "cviebrock/eloquent-sluggable": "^4.1"
+        "cviebrock/eloquent-sluggable": "^4.1",
+        "mcamara/laravel-localization": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

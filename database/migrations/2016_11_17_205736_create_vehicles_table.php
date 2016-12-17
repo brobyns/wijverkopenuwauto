@@ -26,11 +26,17 @@ class CreateVehiclesTable extends Migration
             $table->tinyInteger('n_seats')->unsigned();
             $table->tinyInteger('n_gears')->unsigned();
             $table->tinyInteger('n_doors')->unsigned();
+            $table->tinyInteger('n_cylinders')->unsigned();
             $table->string('color');
             $table->string('color_type');
             $table->string('color_interior');
+            $table->string('interior');
             $table->string('power');
-            $table->boolean('damaged');
+            $table->integer('cylinder_capacity')->unsigned();
+            $table->integer('co2_emission')->unsigned();
+            $table->string('emission_standard');
+            $table->integer('weight')->unsigned();
+            $table->boolean('damaged')->default(0);
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands');

@@ -18,7 +18,7 @@ class PagesController extends Controller
     }
 
     public function forSale(){
-        $listings = $this->_listingService->getListings();
+        $listings = $this->_listingService->getActiveListings();
         return view('pages.forSale')->with(compact('listings'));
     }
 

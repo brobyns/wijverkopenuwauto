@@ -4,28 +4,39 @@
 | Authentication
 |--------------------------------------------------------------------------
 */
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 Auth::routes();
 /*
 |--------------------------------------------------------------------------
-| Pages
+| Public pages
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', 'PagesController@home');
-
-Route::get('/te-koop', 'PagesController@forSale');
-
-Route::get('/faq', 'PagesController@faq');
-
-Route::get('/contact', 'PagesController@contact');
-
-Route::get('images/{image}', function($image = null)
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]
+], function()
 {
-    $path = storage_path() . $image;
-    if (file_exists($path)) {
-        return Response::download($path);
-    }
+    Route::get('/', 'PagesController@home');
+
+    Route::get(LaravelLocalization::transRoute('routes.teKoop'), 'PagesController@forSale');
+
+    Route::get(LaravelLocalization::transRoute('routes.teKoop.listing'), 'ListingsController@show');
+
+    Route::get('/faq', 'PagesController@faq');
+
+    Route::get('/contact', 'PagesController@contact');
+
+    Route::get('images/{image}', function($image = null)
+    {
+        $path = storage_path() . $image;
+        if (file_exists($path)) {
+            return Response::download($path);
+        }
+    });
 });
+
+Route::post('contact/request', 'ContactController@contactRequest');
 
 /*
 |--------------------------------------------------------------------------
@@ -38,10 +49,3 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware', 'prefix' =>
     Route::resource('vehicleProperties', 'VehiclePropertiesController');
     Route::post('upload', ['as' => 'admin.upload', 'uses' =>'UploadsController@fineUploaderEndpoint']);
 });
-
-/*
-|--------------------------------------------------------------------------
-| Contact
-|--------------------------------------------------------------------------
-*/
-Route::post('contact/request', 'ContactController@contactRequest');

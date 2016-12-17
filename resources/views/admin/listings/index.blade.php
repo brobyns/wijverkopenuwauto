@@ -10,6 +10,15 @@
                 <thead>
                 <tr>
                     <th>
+                        Actief
+                    </th>
+                    <th>
+                        Verkocht
+                    </th>
+                    <th>
+                        Titel
+                    </th>
+                    <th>
                         Merk
                     </th>
                     <th>
@@ -30,34 +39,25 @@
                     <th>
                         Brandstof
                     </th>
-                    <th>
-                        <a href="{{route('listings.index', ['page' => $data['vehicles']->currentPage(), 'order' => 'power', 'dir' => $data['dir']]) }}">
-                            Vermogen
-                        </a>
-                    </th>
-                    <th>
-                        <a href="{{route('listings.index', ['page' => $data['vehicles']->currentPage(), 'order' => 'type', 'dir' => $data['dir']]) }}">
-                            Type
-                        </a>
-                    </th>
                     <th><a href="{{url('admin/listings/create')}}" class="btn btn-default btn-block"><i class="fa fa-plus fa-lg"></i></a></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                @foreach ($vehicles as $vehicle)
+                @foreach ($listings as $listing)
                     <tr>
-                        <td>{{ $vehicle->brand->name }}</td>
-                        <td>{{ $vehicle->vehicleModel->name }}</td>
-                        <td>{{ $vehicle->first_registered }}</td>
-                        <td>{{ $vehicle->kilometers }}</td>
-                        <td>{{ $vehicle->fuelType->name }}</td>
-                        <td>{{ $vehicle->power }}</td>
-                        <td>{{ $vehicle->body_type }}</td>
+                        <td>{{ $listing->active == 1 ? 'Ja' : 'Nee' }}</td>
+                        <td>{{ $listing->sold == 1 ? 'Ja' : 'Nee' }}</td>
+                        <td>{{ $listing->title }}</td>
+                        <td>{{ $listing->vehicle->brand->name }}</td>
+                        <td>{{ $listing->vehicle->vehicleModel->name }}</td>
+                        <td>{{ $listing->vehicle->first_registered }}</td>
+                        <td>{{ $listing->vehicle->kilometers }}</td>
+                        <td>{{ $listing->vehicle->fuelType->name }}</td>
                         <td>
-                            <a href="{{url('admin/listings/'.$vehicle->id .'/edit')}}" class="btn btn-default btn-block"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                            <a href="{{url('admin/listings/'.$listing->id .'/edit')}}" class="btn btn-default btn-block"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
-                            {{ Form::open(['url' => 'admin/listings/'.$vehicle->id, 'method' => 'DELETE']) }}
+                            {{ Form::open(['url' => 'admin/listings/'.$listing->id, 'method' => 'DELETE']) }}
                             <button class="btn btn-default btn-block" type="submit">
                                 <i class="fa fa-trash fa-lg"></i>
                             </button>

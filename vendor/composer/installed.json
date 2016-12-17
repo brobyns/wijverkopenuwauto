@@ -4032,5 +4032,55 @@
             "laravel",
             "slug"
         ]
+    },
+    {
+        "name": "mcamara/laravel-localization",
+        "version": "1.1.10",
+        "version_normalized": "1.1.10.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mcamara/laravel-localization.git",
+            "reference": "a7ebf1783219e3df5db3c699b31282ec615e2de6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/a7ebf1783219e3df5db3c699b31282ec615e2de6",
+            "reference": "a7ebf1783219e3df5db3c699b31282ec615e2de6",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/framework": "~5.2",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "orchestra/testbench": "3.2.*"
+        },
+        "time": "2016-12-16 16:08:51",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-0": {
+                "Mcamara\\LaravelLocalization": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Marc Cámara",
+                "email": "mcamara88@gmail.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Easy localization for Laravel",
+        "homepage": "https://github.com/mcamara/laravel-localization",
+        "keywords": [
+            "laravel",
+            "localization",
+            "php"
+        ]
     }
 ]

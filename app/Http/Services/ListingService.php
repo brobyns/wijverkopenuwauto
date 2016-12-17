@@ -16,4 +16,8 @@ class ListingService
     public function getListings() {
         return Listing::all();
     }
+
+    public function getActiveListings() {
+        return Listing::where('active', true)->get();
+    }
 }
